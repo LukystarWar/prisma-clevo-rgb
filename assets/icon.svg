@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="0" y="0" width="64" height="64" rx="14" fill="#0B0B0D"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" fill="none" stroke="#232327" stroke-width="1.5"/>
+
+  <!-- incoming white light ray -->
+  <line x1="6" y1="33" x2="23" y2="33" stroke="#C9C9CC" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- prism -->
+  <polygon points="24,45 41,45 32.5,19" fill="rgba(68,214,44,0.14)" stroke="#44D62C" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- split RGB rays -->
+  <line x1="35" y1="33" x2="50" y2="21" stroke="#FF4B4B" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="36" y1="35" x2="55" y2="35" stroke="#44D62C" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="35" y1="37" x2="50" y2="47" stroke="#3BA7FF" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="51.5" cy="20" r="2.4" fill="#FF4B4B"/>
+  <circle cx="56.5" cy="35" r="2.4" fill="#44D62C"/>
+  <circle cx="51.5" cy="48" r="2.4" fill="#3BA7FF"/>
+</svg>

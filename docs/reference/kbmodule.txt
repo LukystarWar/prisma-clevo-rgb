@@ -1,0 +1,1084 @@
+﻿
+===== CC.KBModule base=CC.BaseKB
+  field WhiteKB whiteKB
+  field RGBKB rgbKB
+  field PerkeyKB perkeyKB
+  field Int32 typeRule
+  field EventHandler UpdateBrightness
+  field EventHandler UpdateUILanguage
+  field EventHandler CloseUI
+  field EventHandler UpdateToggleRGB
+  field Arg001_Event Arg001_GetEvent
+  field EventLog monitorlog
+
+## KBModule::get_Status()
+  0000 ldc.i4.0 
+  0001 stloc.0 
+  0002 ldarg.0 
+  0003 ldfld KBModule::typeRule
+  0008 stloc.1 
+  0009 ldloc.1 
+  000A ldc.i4.2 
+  000B sub 
+  000C switch switch[5]
+  0025 ldloc.1 
+  0026 ldc.i4.s 22
+  0028 beq.s 0048
+  002A br.s 0062
+  002C ldarg.0 
+  002D ldfld KBModule::rgbKB
+  0032 callvirt RGBKB::get_Status
+  0037 stloc.0 
+  0038 br.s 0062
+  003A ldarg.0 
+  003B ldfld KBModule::rgbKB
+  0040 callvirt RGBKB::get_Status
+  0045 stloc.0 
+  0046 br.s 0062
+  0048 ldarg.0 
+  0049 ldfld KBModule::rgbKB
+  004E callvirt RGBKB::get_Status
+  0053 stloc.0 
+  0054 br.s 0062
+  0056 ldarg.0 
+  0057 ldfld KBModule::perkeyKB
+  005C callvirt PerkeyKB::get_Status
+  0061 stloc.0 
+  0062 ldloc.0 
+  0063 ret 
+
+## KBModule::get_Mode()
+  0000 ldc.i4.0 
+  0001 stloc.0 
+  0002 ldarg.0 
+  0003 ldfld KBModule::typeRule
+  0008 stloc.1 
+  0009 ldloc.1 
+  000A ldc.i4.2 
+  000B sub 
+  000C switch switch[5]
+  0025 ldloc.1 
+  0026 ldc.i4.s 22
+  0028 beq.s 0048
+  002A br.s 0062
+  002C ldarg.0 
+  002D ldfld KBModule::rgbKB
+  0032 callvirt RGBKB::get_Mode
+  0037 stloc.0 
+  0038 br.s 0062
+  003A ldarg.0 
+  003B ldfld KBModule::rgbKB
+  0040 callvirt RGBKB::get_Mode
+  0045 stloc.0 
+  0046 br.s 0062
+  0048 ldarg.0 
+  0049 ldfld KBModule::rgbKB
+  004E callvirt RGBKB::get_Mode
+  0053 stloc.0 
+  0054 br.s 0062
+  0056 ldarg.0 
+  0057 ldfld KBModule::perkeyKB
+  005C callvirt PerkeyKB::get_Mode
+  0061 stloc.0 
+  0062 ldloc.0 
+  0063 ret 
+
+## KBModule::set_Mode(Int32 value)
+  0000 ldarg.0 
+  0001 ldfld KBModule::typeRule
+  0006 stloc.0 
+  0007 ldloc.0 
+  0008 ldc.i4.2 
+  0009 sub 
+  000A switch switch[5]
+  0023 ldloc.0 
+  0024 ldc.i4.s 22
+  0026 beq.s 0043
+  0028 ret 
+  0029 ldarg.0 
+  002A ldfld KBModule::rgbKB
+  002F ldarg.1 
+  0030 callvirt RGBKB::set_Mode
+  0035 ret 
+  0036 ldarg.0 
+  0037 ldfld KBModule::rgbKB
+  003C ldarg.1 
+  003D callvirt RGBKB::set_Mode
+  0042 ret 
+  0043 ldarg.0 
+  0044 ldfld KBModule::rgbKB
+  0049 ldarg.1 
+  004A callvirt RGBKB::set_Mode
+  004F ret 
+  0050 ldarg.0 
+  0051 ldfld KBModule::perkeyKB
+  0056 ldarg.1 
+  0057 callvirt PerkeyKB::set_Mode
+  005C ret 
+
+## KBModule::get_Speed()
+  0000 ldc.i4.0 
+  0001 stloc.0 
+  0002 ldarg.0 
+  0003 ldfld KBModule::typeRule
+  0008 ldc.i4.3 
+  0009 bne.un.s 0017
+  000B ldarg.0 
+  000C ldfld KBModule::perkeyKB
+  0011 callvirt PerkeyKB::get_Speed
+  0016 stloc.0 
+  0017 ldloc.0 
+  0018 ret 
+
+## KBModule::get_StaticStatus()
+  0000 ldc.i4.0 
+  0001 stloc.0 
+  0002 ldarg.0 
+  0003 ldfld KBModule::typeRule
+  0008 ldc.i4.3 
+  0009 bne.un.s 0017
+  000B ldarg.0 
+  000C ldfld KBModule::perkeyKB
+  0011 callvirt PerkeyKB::get_Static
+  0016 stloc.0 
+  0017 ldloc.0 
+  0018 ret 
+
+## KBModule::add_Arg001_GetEvent(Arg001_Event value)
+  0000 ldarg.0 
+  0001 ldfld KBModule::Arg001_GetEvent
+  0006 stloc.0 
+  0007 ldloc.0 
+  0008 stloc.1 
+  0009 ldloc.1 
+  000A ldarg.1 
+  000B call Delegate::Combine
+  0010 castclass KBModule::Arg001_Event
+  0015 stloc.2 
+  0016 ldarg.0 
+  0017 ldflda KBModule::Arg001_GetEvent
+  001C ldloc.2 
+  001D ldloc.1 
+  001E call Interlocked::CompareExchange
+  0023 stloc.0 
+  0024 ldloc.0 
+  0025 ldloc.1 
+  0026 bne.un.s 0007
+  0028 ret 
+
+## KBModule::remove_Arg001_GetEvent(Arg001_Event value)
+  0000 ldarg.0 
+  0001 ldfld KBModule::Arg001_GetEvent
+  0006 stloc.0 
+  0007 ldloc.0 
+  0008 stloc.1 
+  0009 ldloc.1 
+  000A ldarg.1 
+  000B call Delegate::Remove
+  0010 castclass KBModule::Arg001_Event
+  0015 stloc.2 
+  0016 ldarg.0 
+  0017 ldflda KBModule::Arg001_GetEvent
+  001C ldloc.2 
+  001D ldloc.1 
+  001E call Interlocked::CompareExchange
+  0023 stloc.0 
+  0024 ldloc.0 
+  0025 ldloc.1 
+  0026 bne.un.s 0007
+  0028 ret 
+
+## KBModule::GetCurrentAppVersion()
+  0000 call InsydeAcpiProt::ReadAcpiAppVersion
+  0005 ret 
+
+## KBModule::Init()
+  0000 ldstr "Start LED Keyboard Setting and Initial
+Version: "
+  0005 call Assembly::GetExecutingAssembly
+  000A callvirt Assembly::GetName
+  000F callvirt AssemblyName::get_Version
+  0014 dup 
+  0015 brtrue.s 001B
+  0017 pop 
+  0018 ldnull 
+  0019 br.s 0020
+  001B callvirt Object::ToString
+  0020 call String::Concat
+  0025 newobj StringBuilder::.ctor
+  002A stloc.0 
+  002B ldarg.0 
+  002C ldloc.0 
+  002D callvirt Object::ToString
+  0032 ldstr "Led_Keyboard_Setting"
+  0037 call KBModule::WriteLog
+  003C ldarg.0 
+  003D ldfld KBModule::typeRule
+  0042 stloc.1 
+  0043 ldloc.1 
+  0044 ldc.i4.1 
+  0045 sub 
+  0046 switch switch[6]
+  0063 ldloc.1 
+  0064 ldc.i4.s 22
+  0066 beq.s 0091
+  0068 br.s 00A9
+  006A ldarg.0 
+  006B ldfld KBModule::whiteKB
+  0070 callvirt WhiteKB::Init
+  0075 br.s 00A9
+  0077 ldarg.0 
+  0078 ldfld KBModule::rgbKB
+  007D callvirt RGBKB::Init
+  0082 br.s 00A9
+  0084 ldarg.0 
+  0085 ldfld KBModule::rgbKB
+  008A callvirt RGBKB::Init
+  008F br.s 00A9
+  0091 ldarg.0 
+  0092 ldfld KBModule::rgbKB
+  0097 callvirt RGBKB::Init
+  009C br.s 00A9
+  009E ldarg.0 
+  009F ldfld KBModule::perkeyKB
+  00A4 callvirt PerkeyKB::Init
+  00A9 ldarg.0 
+  00AA call InsydeAcpiProt::ReadAcpiSleepTimer
+  00AF call BaseKB::set_SleepTimer
+  00B4 ldarg.0 
+  00B5 call InsydeAcpiProt::ReadAcpiSleepTimerTrigger
+  00BA call BaseKB::set_SleepTimerTrigger
+  00BF ldarg.0 
+  00C0 call BaseKB::get_SleepTimerTrigger
+  00C5 stloc.1 
+  00C6 ldloca.s 1
+  00C8 ldc.i4.1 
+  00C9 call Int32::Equals
+  00CE brfalse.s 00DE
+  00D0 ldarg.0 
+  00D1 ldarg.0 
+  00D2 call BaseKB::get_SleepTimer
+  00D7 call BaseKB::SetSleepTimerTrigger
+  00DC br.s 00E4
+  00DE ldarg.0 
+  00DF call BaseKB::SetSleepTimerTriggerOff
+  00E4 ldarg.0 
+  00E5 call BaseKB::SupportOverrideBootEffect
+  00EA brfalse.s 00F7
+  00EC ldarg.0 
+  00ED call InsydeAcpiProt::ReadAcpiOverrideBootEffect
+  00F2 call BaseKB::set_OverrideBootEffect
+  00F7 ldc.i4.1 
+  00F8 call InsydeAcpiProt::SetAcpiAppLaunch
+  00FD ldarg.0 
+  00FE ldstr "Opening"
+  0103 ldstr "Launch"
+  0108 call KBModule::WriteLog
+  010D ret 
+
+## KBModule::GetBrightness()
+  0000 ldc.i4.0 
+  0001 stloc.0 
+  0002 ldarg.0 
+  0003 ldfld KBModule::typeRule
+  0008 stloc.1 
+  0009 ldloc.1 
+  000A ldc.i4.1 
+  000B sub 
+  000C switch switch[6]
+  0029 ldloc.1 
+  002A ldc.i4.s 22
+  002C beq.s 005A
+  002E br.s 0074
+  0030 ldarg.0 
+  0031 ldfld KBModule::whiteKB
+  0036 callvirt WhiteKB::get_Brightness
+  003B stloc.0 
+  003C br.s 0074
+  003E ldarg.0 
+  003F ldfld KBModule::rgbKB
+  0044 callvirt RGBKB::get_Brightness
+  0049 stloc.0 
+  004A br.s 0074
+  004C ldarg.0 
+  004D ldfld KBModule::rgbKB
+  0052 callvirt RGBKB::get_Brightness
+  0057 stloc.0 
+  0058 br.s 0074
+  005A ldarg.0 
+  005B ldfld KBModule::rgbKB
+  0060 callvirt RGBKB::get_Brightness
+  0065 stloc.0 
+  0066 br.s 0074
+  0068 ldarg.0 
+  0069 ldfld KBModule::perkeyKB
+  006E callvirt PerkeyKB::get_Brightness
+  0073 stloc.0 
+  0074 ldloc.0 
+  0075 ret 
+
+## KBModule::SetMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::typeRule
+  0006 stloc.0 
+  0007 ldloc.0 
+  0008 ldc.i4.2 
+  0009 sub 
+  000A switch switch[5]
+  0023 ldloc.0 
+  0024 ldc.i4.s 22
+  0026 beq.s 0057
+  0028 ret 
+  0029 ldarg.0 
+  002A ldfld KBModule::rgbKB
+  002F callvirt RGBKB::SetMode
+  0034 ldarg.0 
+  0035 ldfld KBModule::rgbKB
+  003A callvirt RGBKB::SetLedOnOff
+  003F ret 
+  0040 ldarg.0 
+  0041 ldfld KBModule::rgbKB
+  0046 callvirt RGBKB::SetMode
+  004B ldarg.0 
+  004C ldfld KBModule::rgbKB
+  0051 callvirt RGBKB::SetLedOnOff
+  0056 ret 
+  0057 ldarg.0 
+  0058 ldfld KBModule::rgbKB
+  005D callvirt RGBKB::SetMode
+  0062 ldarg.0 
+  0063 ldfld KBModule::rgbKB
+  0068 callvirt RGBKB::SetLedOnOff
+  006D ret 
+  006E ldarg.0 
+  006F ldfld KBModule::perkeyKB
+  0074 callvirt PerkeyKB::SetMode
+  0079 ret 
+
+## KBModule::GetWhiteBrightnessNow()
+  0000 ldarg.0 
+  0001 call BaseKB::GetKBType
+  0006 ldc.i4.1 
+  0007 bne.un.s 0014
+  0009 ldarg.0 
+  000A ldfld KBModule::whiteKB
+  000F callvirt WhiteKB::GetBrightnessNow
+  0014 ret 
+
+## KBModule::GetRGBAllColor()
+  0000 ldarg.0 
+  0001 ldfld KBModule::rgbKB
+  0006 callvirt RGBKB::get_All
+  000B ret 
+
+## KBModule::GetRGBLeftColor()
+  0000 ldarg.0 
+  0001 ldfld KBModule::rgbKB
+  0006 callvirt RGBKB::get_Left
+  000B ret 
+
+## KBModule::GetRGBMidColor()
+  0000 ldarg.0 
+  0001 ldfld KBModule::rgbKB
+  0006 callvirt RGBKB::get_Mid
+  000B ret 
+
+## KBModule::GetRGBRightColor()
+  0000 ldarg.0 
+  0001 ldfld KBModule::rgbKB
+  0006 callvirt RGBKB::get_Right
+  000B ret 
+
+## KBModule::GetRGBLogoColor()
+  0000 ldarg.0 
+  0001 ldfld KBModule::rgbKB
+  0006 callvirt RGBKB::get_Logo
+  000B ret 
+
+## KBModule::GetRGBLightBarColor()
+  0000 ldarg.0 
+  0001 ldfld KBModule::rgbKB
+  0006 callvirt RGBKB::get_LightBar
+  000B ret 
+
+## KBModule::GetPerkeyWaveStatus()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_iWave
+  000B ret 
+
+## KBModule::GetPerkeyBreathStatus()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_iBreath
+  000B ret 
+
+## KBModule::GetPerkeyScanStatus()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_iScan
+  000B ret 
+
+## KBModule::GetPerkeyBlinkStatus()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_iBlink
+  000B ret 
+
+## KBModule::GetPerkeyRandomStatus()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_iRandom
+  000B ret 
+
+## KBModule::GetPerkeyRippleStatus()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_iRipple
+  000B ret 
+
+## KBModule::GetPerkeySnakeStatus()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_iSnake
+  000B ret 
+
+## KBModule::GetPerkeyWaveColor()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_Wave
+  000B ret 
+
+## KBModule::GetPerkeyBreathColor()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_Breath
+  000B ret 
+
+## KBModule::GetPerkeyScanColor1()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_Scan1
+  000B ret 
+
+## KBModule::GetPerkeyScanColor2()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_Scan2
+  000B ret 
+
+## KBModule::GetPerkeyBlinkColor()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_Blink
+  000B ret 
+
+## KBModule::GetPerkeyRandomColor()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_Random
+  000B ret 
+
+## KBModule::GetPerkeyRippleColor()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_Ripple
+  000B ret 
+
+## KBModule::GetPerkeySnakeColor()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_Snake
+  000B ret 
+
+## KBModule::GetPerkeyFnColor()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::get_Fn
+  000B ret 
+
+## KBModule::SetPerkeyBreathRandomMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::SetBreathRandomMode
+  000B ret 
+
+## KBModule::SetPerkeyBreathColorMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.0 
+  0007 ldfld KBModule::perkeyKB
+  000C callvirt PerkeyKB::get_Breath
+  0011 callvirt PerkeyKB::SetBreathColorMode
+  0016 ret 
+
+## KBModule::SetPerkeyBreathColorMode(Color color)
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.1 
+  0007 callvirt PerkeyKB::SetBreathColorMode
+  000C ret 
+
+## KBModule::SetPerkeyWaveMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::SetWaveMode
+  000B ret 
+
+## KBModule::SetPerkeyWaveDefaultMode(Int32 wave_mode)
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.1 
+  0007 callvirt PerkeyKB::SetWaveMode
+  000C ret 
+
+## KBModule::SetPerkeyWaveColorMode(Int32 wave_mode)
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.1 
+  0007 ldarg.0 
+  0008 ldfld KBModule::perkeyKB
+  000D callvirt PerkeyKB::get_Wave
+  0012 callvirt PerkeyKB::SetWaveMode
+  0017 ret 
+
+## KBModule::SetPerkeyWaveColorMode(Int32 wave_mode, Color color)
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.1 
+  0007 ldarg.2 
+  0008 callvirt PerkeyKB::SetWaveMode
+  000D ret 
+
+## KBModule::SetPerkeySnakeRandomMode(Int32 snakeMode)
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.1 
+  0007 callvirt PerkeyKB::SetSnakeMode
+  000C ret 
+
+## KBModule::SetPerkeySnakeColorMode(Int32 snakeMode)
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.1 
+  0007 ldarg.0 
+  0008 ldfld KBModule::perkeyKB
+  000D callvirt PerkeyKB::get_Snake
+  0012 callvirt PerkeyKB::SetSnakeMode
+  0017 ret 
+
+## KBModule::SetPerkeySnakeColorMode(Int32 snakeMode, Color color)
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.1 
+  0007 ldarg.2 
+  0008 callvirt PerkeyKB::SetSnakeMode
+  000D ret 
+
+## KBModule::SetPerkeyBlinkRandomMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::SetBlinkRandomMode
+  000B ret 
+
+## KBModule::SetPerkeyBlinkColorMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.0 
+  0007 ldfld KBModule::perkeyKB
+  000C callvirt PerkeyKB::get_Blink
+  0011 callvirt PerkeyKB::SetBlinkColorMode
+  0016 ret 
+
+## KBModule::SetPerkeyBlinkColorMode(Color color)
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.1 
+  0007 callvirt PerkeyKB::SetBlinkColorMode
+  000C ret 
+
+## KBModule::SetPerkeyRandomMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::SetRandomMode
+  000B ret 
+
+## KBModule::SetPerkeyRandomRandomMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::SetRandomRandomMode
+  000B ret 
+
+## KBModule::SetPerkeyRandomColorMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.0 
+  0007 ldfld KBModule::perkeyKB
+  000C callvirt PerkeyKB::get_Random
+  0011 callvirt PerkeyKB::SetRandomColorMode
+  0016 ret 
+
+## KBModule::SetPerkeyRandomColorMode(Color color)
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.1 
+  0007 callvirt PerkeyKB::SetRandomColorMode
+  000C ret 
+
+## KBModule::SetPerkeyScanMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::SetScanMode
+  000B ret 
+
+## KBModule::SetPerkeyScanRandomMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::SetScanRandomMode
+  000B ret 
+
+## KBModule::SetPerkeyScanColorMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.0 
+  0007 ldfld KBModule::perkeyKB
+  000C callvirt PerkeyKB::get_Scan1
+  0011 ldarg.0 
+  0012 ldfld KBModule::perkeyKB
+  0017 callvirt PerkeyKB::get_Scan2
+  001C callvirt PerkeyKB::SetScanColorMode
+  0021 ret 
+
+## KBModule::SetPerkeyScanColorMode(Color color1, Color color2)
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.1 
+  0007 ldarg.2 
+  0008 callvirt PerkeyKB::SetScanColorMode
+  000D ret 
+
+## KBModule::SetPerkeySnakeMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::SetSnakeMode
+  000B ret 
+
+## KBModule::SetPerkeyRippleRandomMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::SetRippleRandomMode
+  000B ret 
+
+## KBModule::SetPerkeyRippleColorMode(Color color)
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.1 
+  0007 callvirt PerkeyKB::SetRippleColorMode
+  000C ret 
+
+## KBModule::SetPerkeyFIAORandomMode()
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 callvirt PerkeyKB::SetFIAORandomMode
+  000B ret 
+
+## KBModule::SetPerkeyFIAOColorMode(Color color)
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.1 
+  0007 callvirt PerkeyKB::SetFIAOColorMode
+  000C ret 
+
+## KBModule::SetPerkeyFnColorMode(Color color)
+  0000 ldarg.0 
+  0001 ldfld KBModule::perkeyKB
+  0006 ldarg.1 
+  0007 callvirt PerkeyKB::SetFnColorMode
+  000C ret 
+
+## KBModule::GetPerkeyStaticColor(Int32 row, Int32 col)
+  0000 ldarg.1 
+  0001 ldarg.2 
+  0002 call InsydeAcpiProt::GetStaticKeyColor
+  0007 ret 
+
+## KBModule::.ctor()
+  0000 ldarg.0 
+  0001 call BaseKB::.ctor
+  0006 ldarg.0 
+  0007 newobj WhiteKB::.ctor
+  000C stfld KBModule::whiteKB
+  0011 ldarg.0 
+  0012 newobj RGBKB::.ctor
+  0017 stfld KBModule::rgbKB
+  001C ldarg.0 
+  001D newobj PerkeyKB::.ctor
+  0022 stfld KBModule::perkeyKB
+  0027 ldarg.0 
+  0028 ldarg.0 
+  0029 call BaseKB::GetKBType
+  002E stfld KBModule::typeRule
+  0033 ldarg.0 
+  0034 ldfld KBModule::monitorlog
+  0039 brtrue.s 0089
+  003B ldarg.0 
+  003C newobj EventLog::.ctor
+  0041 stfld KBModule::monitorlog
+  0046 ldarg.0 
+  0047 ldfld KBModule::monitorlog
+  004C ldstr "PowerBIOSServer_Out"
+  0051 callvirt EventLog::set_Source
+  0056 ldarg.0 
+  0057 ldfld KBModule::monitorlog
+  005C ldstr "OutLog"
+  0061 callvirt EventLog::set_Log
+  0066 ldarg.0 
+  0067 ldfld KBModule::monitorlog
+  006C ldc.i4.1 
+  006D callvirt EventLog::set_EnableRaisingEvents
+  0072 ldarg.0 
+  0073 ldfld KBModule::monitorlog
+  0078 ldarg.0 
+  0079 ldftn KBModule::outlog_EntryWritten
+  007F newobj EntryWrittenEventHandler::.ctor
+  0084 callvirt EventLog::add_EntryWritten
+  0089 ret 
+
+===== CC.BaseKB base=System.Object
+  field Byte[] _wmi13
+  field Byte[] _wmi17
+  field Int32 _wmi122
+  field Int32 _overridebooteffect
+  field Int32 _sleepTimer
+  field Int32 _sleepTimerTirgger
+  field Int32 PAGE_SIZE = 256
+
+## BaseKB::GetWmi17()
+  0000 ldc.i4.s 90
+  0002 stloc.0 
+  0003 ldc.i4.s 70
+  0005 ldloca.s 0
+  0007 call InsydeAcpiProt::GetDCHU_Data_Integer
+  000C pop 
+  000D ldarg.0 
+  000E ldc.i4 256
+  0013 newarr ::Byte
+  0018 stfld BaseKB::_wmi17
+  001D ldc.i4.s 17
+  001F ldarg.0 
+  0020 ldfld BaseKB::_wmi17
+  0025 ldc.i4.0 
+  0026 ldelema ::Byte
+  002B call InsydeAcpiProt::GetDCHU_Data_Buffer
+  0030 pop 
+  0031 ret 
+
+## BaseKB::GetPalette(Color[]& color)
+  0000 ldarg.1 
+  0001 ldind.ref 
+  0002 ldc.i4.0 
+  0003 ldarg.0 
+  0004 ldfld BaseKB::_wmi17
+  0009 ldc.i4.s 16
+  000B ldelem.u1 
+  000C ldarg.0 
+  000D ldfld BaseKB::_wmi17
+  0012 ldc.i4.s 17
+  0014 ldelem.u1 
+  0015 ldarg.0 
+  0016 ldfld BaseKB::_wmi17
+  001B ldc.i4.s 18
+  001D ldelem.u1 
+  001E call Color::FromRgb
+  0023 stelem ::Color
+  0028 ldarg.1 
+  0029 ldind.ref 
+  002A ldc.i4.1 
+  002B ldarg.0 
+  002C ldfld BaseKB::_wmi17
+  0031 ldc.i4.s 19
+  0033 ldelem.u1 
+  0034 ldarg.0 
+  0035 ldfld BaseKB::_wmi17
+  003A ldc.i4.s 20
+  003C ldelem.u1 
+  003D ldarg.0 
+  003E ldfld BaseKB::_wmi17
+  0043 ldc.i4.s 21
+  0045 ldelem.u1 
+  0046 call Color::FromRgb
+  004B stelem ::Color
+  0050 ldarg.1 
+  0051 ldind.ref 
+  0052 ldc.i4.2 
+  0053 ldarg.0 
+  0054 ldfld BaseKB::_wmi17
+  0059 ldc.i4.s 22
+  005B ldelem.u1 
+  005C ldarg.0 
+  005D ldfld BaseKB::_wmi17
+  0062 ldc.i4.s 23
+  0064 ldelem.u1 
+  0065 ldarg.0 
+  0066 ldfld BaseKB::_wmi17
+  006B ldc.i4.s 24
+  006D ldelem.u1 
+  006E call Color::FromRgb
+  0073 stelem ::Color
+  0078 ldarg.1 
+  0079 ldind.ref 
+  007A ldc.i4.3 
+  007B ldarg.0 
+  007C ldfld BaseKB::_wmi17
+  0081 ldc.i4.s 25
+  0083 ldelem.u1 
+  0084 ldarg.0 
+  0085 ldfld BaseKB::_wmi17
+  008A ldc.i4.s 26
+  008C ldelem.u1 
+  008D ldarg.0 
+  008E ldfld BaseKB::_wmi17
+  0093 ldc.i4.s 27
+  0095 ldelem.u1 
+  0096 call Color::FromRgb
+  009B stelem ::Color
+  00A0 ldarg.1 
+  00A1 ldind.ref 
+  00A2 ldc.i4.4 
+  00A3 ldarg.0 
+  00A4 ldfld BaseKB::_wmi17
+  00A9 ldc.i4.s 28
+  00AB ldelem.u1 
+  00AC ldarg.0 
+  00AD ldfld BaseKB::_wmi17
+  00B2 ldc.i4.s 29
+  00B4 ldelem.u1 
+  00B5 ldarg.0 
+  00B6 ldfld BaseKB::_wmi17
+  00BB ldc.i4.s 30
+  00BD ldelem.u1 
+  00BE call Color::FromRgb
+  00C3 stelem ::Color
+  00C8 ldarg.1 
+  00C9 ldind.ref 
+  00CA ldc.i4.5 
+  00CB ldarg.0 
+  00CC ldfld BaseKB::_wmi17
+  00D1 ldc.i4.s 32
+  00D3 ldelem.u1 
+  00D4 ldarg.0 
+  00D5 ldfld BaseKB::_wmi17
+  00DA ldc.i4.s 33
+  00DC ldelem.u1 
+  00DD ldarg.0 
+  00DE ldfld BaseKB::_wmi17
+  00E3 ldc.i4.s 34
+  00E5 ldelem.u1 
+  00E6 call Color::FromRgb
+  00EB stelem ::Color
+  00F0 ldarg.1 
+  00F1 ldind.ref 
+  00F2 ldc.i4.6 
+  00F3 ldarg.0 
+  00F4 ldfld BaseKB::_wmi17
+  00F9 ldc.i4.s 35
+  00FB ldelem.u1 
+  00FC ldarg.0 
+  00FD ldfld BaseKB::_wmi17
+  0102 ldc.i4.s 36
+  0104 ldelem.u1 
+  0105 ldarg.0 
+  0106 ldfld BaseKB::_wmi17
+  010B ldc.i4.s 37
+  010D ldelem.u1 
+  010E call Color::FromRgb
+  0113 stelem ::Color
+  0118 ldarg.1 
+  0119 ldind.ref 
+  011A ldc.i4.7 
+  011B ldarg.0 
+  011C ldfld BaseKB::_wmi17
+  0121 ldc.i4.s 38
+  0123 ldelem.u1 
+  0124 ldarg.0 
+  0125 ldfld BaseKB::_wmi17
+  012A ldc.i4.s 39
+  012C ldelem.u1 
+  012D ldarg.0 
+  012E ldfld BaseKB::_wmi17
+  0133 ldc.i4.s 40
+  0135 ldelem.u1 
+  0136 call Color::FromRgb
+  013B stelem ::Color
+  0140 ldarg.1 
+  0141 ldind.ref 
+  0142 ldc.i4.8 
+  0143 ldarg.0 
+  0144 ldfld BaseKB::_wmi17
+  0149 ldc.i4.s 41
+  014B ldelem.u1 
+  014C ldarg.0 
+  014D ldfld BaseKB::_wmi17
+  0152 ldc.i4.s 42
+  0154 ldelem.u1 
+  0155 ldarg.0 
+  0156 ldfld BaseKB::_wmi17
+  015B ldc.i4.s 43
+  015D ldelem.u1 
+  015E call Color::FromRgb
+  0163 stelem ::Color
+  0168 ldarg.1 
+  0169 ldind.ref 
+  016A ldc.i4.s 9
+  016C ldarg.0 
+  016D ldfld BaseKB::_wmi17
+  0172 ldc.i4.s 44
+  0174 ldelem.u1 
+  0175 ldarg.0 
+  0176 ldfld BaseKB::_wmi17
+  017B ldc.i4.s 45
+  017D ldelem.u1 
+  017E ldarg.0 
+  017F ldfld BaseKB::_wmi17
+  0184 ldc.i4.s 46
+  0186 ldelem.u1 
+  0187 call Color::FromRgb
+  018C stelem ::Color
+  0191 ret 
+
+## BaseKB::GetWmi13()
+  0000 ldc.i4.s 90
+  0002 stloc.0 
+  0003 ldc.i4.s 70
+  0005 ldloca.s 0
+  0007 call InsydeAcpiProt::GetDCHU_Data_Integer
+  000C pop 
+  000D ldarg.0 
+  000E ldc.i4 256
+  0013 newarr ::Byte
+  0018 stfld BaseKB::_wmi13
+  001D ldc.i4.s 13
+  001F ldarg.0 
+  0020 ldfld BaseKB::_wmi13
+  0025 ldc.i4.0 
+  0026 ldelema ::Byte
+  002B call InsydeAcpiProt::GetDCHU_Data_Buffer
+  0030 pop 
+  0031 ret 
+
+## BaseKB::GetKBType()
+  0000 ldarg.0 
+  0001 ldfld BaseKB::_wmi13
+  0006 brtrue.s 000E
+  0008 ldarg.0 
+  0009 call BaseKB::GetWmi13
+  000E ldarg.0 
+  000F ldfld BaseKB::_wmi13
+  0014 ldc.i4.s 15
+  0016 ldelem.u1 
+  0017 ldc.i4.3 
+  0018 beq.s 0051
+  001A ldarg.0 
+  001B ldfld BaseKB::_wmi13
+  0020 ldc.i4.s 15
+  0022 ldelem.u1 
+  0023 ldc.i4.s 19
+  0025 beq.s 0051
+  0027 ldarg.0 
+  0028 ldfld BaseKB::_wmi13
+  002D ldc.i4.s 15
+  002F ldelem.u1 
+  0030 ldc.i4.s 35
+  0032 beq.s 0051
+  0034 ldarg.0 
+  0035 ldfld BaseKB::_wmi13
+  003A ldc.i4.s 15
+  003C ldelem.u1 
+  003D ldc.i4.s 51
+  003F beq.s 0051
+  0041 ldarg.0 
+  0042 ldfld BaseKB::_wmi13
+  0047 ldc.i4.s 15
+  0049 ldelem.u1 
+  004A ldc.i4 243
+  004F bne.un.s 0055
+  0051 ldc.i4.3 
+  0052 stloc.0 
+  0053 br.s 005F
+  0055 ldarg.0 
+  0056 ldfld BaseKB::_wmi13
+  005B ldc.i4.s 15
+  005D ldelem.u1 
+  005E stloc.0 
+  005F ldloc.0 
+  0060 ret 
+
+## BaseKB::WriteKBTypeToReg()
+  0000 ldarg.0 
+  0001 ldfld BaseKB::_wmi13
+  0006 brtrue.s 0009
+  0008 ret 
+  0009 ldc.i4.2 
+  000A ldc.i4.4 
+  000B stloc.0 
+  000C ldc.i4.1 
+  000D stloc.1 
+  000E ldc.i4.1 
+  000F newarr ::Byte
+  0014 stloc.2 
+  0015 ldloc.2 
+  0016 ldc.i4.0 
+  0017 ldarg.0 
+  0018 call BaseKB::GetKBType
+  001D conv.u1 
+  001E stelem.i1 
+  001F ldloc.0 
+  0020 ldloc.1 
+  0021 ldloc.2 
+  0022 ldc.i4.0 
+  0023 ldelema ::Byte
+  0028 call InsydeAcpiProt::WriteAppSettings
+  002D pop 
+  002E ret 
+
+## BaseKB::ReadKBTypeFromReg()
+  0000 ldc.i4.2 
+  0001 ldc.i4.4 
+  0002 stloc.0 
+  0003 ldc.i4.1 
+  0004 stloc.1 
+  0005 ldloc.1 
+  0006 newarr ::Byte
+  000B stloc.2 
+  000C ldloc.0 
+  000D ldloc.1 
+  000E ldloc.2 
+  000F ldc.i4.0 
+  0010 ldelema ::Byte
+  0015 call InsydeAcpiProt::ReadAppSettings
+  001A pop 
+  001B ldloc.2 
+  001C ldc.i4.0 
+  001D ldelem.u1 
+  001E ret 
+
+## BaseKB::get_OverrideBootEffect()
+  0000 ldarg.0 
+  0001 ldfld BaseKB::_overridebooteffect
+  0006 ret 
+
+## BaseKB::get_SleepTimer()
+  0000 ldarg.0 
+  0001 ldfld BaseKB::_sleepTimer
+  0006 ret 
+
+## BaseKB::get_SleepTimerTrigger()
+  0000 ldarg.0 
+  0001 ldfld BaseKB::_sleepTimerTirgger
+  0006 ret 
+
+## BaseKB::.ctor()
+  0000 ldarg.0 
+  0001 call Object::.ctor
+  0006 ret 
+

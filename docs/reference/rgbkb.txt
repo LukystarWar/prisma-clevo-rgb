@@ -1,0 +1,1740 @@
+﻿
+===== CC.RGBKB base=CC.BaseKB
+  field Int32 _iStatus
+  field Color _all
+  field Color _left
+  field Int32 _iLeft
+  field Color _mid
+  field Int32 _iMid
+  field Color _right
+  field Int32 _iRight
+  field Color _tp
+  field Int32 _itp
+  field Color _logo
+  field Int32 _ilogo
+  field Color _lightBar
+  field Int32 _ilightbar
+  field Int32 _brightness
+  field Int32 _iMode
+  field Boolean _initRead
+  field Int32 _kbType
+  field Byte[] _wmi13
+  field Int32 PAGE_SIZE = 256
+
+## RGBKB::get_Status()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_iStatus
+  0006 ret 
+
+## RGBKB::set_Status(Int32 value)
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_initRead
+  0006 brfalse.s 0010
+  0008 ldarg.0 
+  0009 ldarg.1 
+  000A stfld RGBKB::_iStatus
+  000F ret 
+  0010 ldarg.1 
+  0011 call InsydeAcpiProt::WriteAcpiStatus
+  0016 ldarg.0 
+  0017 ldarg.0 
+  0018 ldfld RGBKB::_iStatus
+  001D ldarg.1 
+  001E ldstr "Status"
+  0023 call RGBKB::WriteLog
+  0028 ldarg.0 
+  0029 ldarg.1 
+  002A stfld RGBKB::_iStatus
+  002F ret 
+
+## RGBKB::get_All()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_all
+  0006 ret 
+
+## RGBKB::set_All(Color value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_all
+  0006 ldarg.1 
+  0007 call Color::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_all
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiAllColor
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_all
+  002C ldarg.1 
+  002D ldstr "AllColor"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_all
+  003E ret 
+
+## RGBKB::get_Left()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_left
+  0006 ret 
+
+## RGBKB::set_Left(Color value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_left
+  0006 ldarg.1 
+  0007 call Color::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_left
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiLeftColor
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_left
+  002C ldarg.1 
+  002D ldstr "LeftColor"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_left
+  003E ret 
+
+## RGBKB::get_iLeft()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_iLeft
+  0006 ret 
+
+## RGBKB::set_iLeft(Int32 value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_iLeft
+  0006 ldarg.1 
+  0007 call Int32::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_iLeft
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiLeftStatus
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_iLeft
+  002C ldarg.1 
+  002D ldstr "LeftStatus"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_iLeft
+  003E ret 
+
+## RGBKB::get_Mid()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_mid
+  0006 ret 
+
+## RGBKB::set_Mid(Color value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_mid
+  0006 ldarg.1 
+  0007 call Color::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_mid
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiMidColor
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_mid
+  002C ldarg.1 
+  002D ldstr "MidColor"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_mid
+  003E ret 
+
+## RGBKB::get_iMid()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_iMid
+  0006 ret 
+
+## RGBKB::set_iMid(Int32 value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_iMid
+  0006 ldarg.1 
+  0007 call Int32::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_iMid
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiMidStatus
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_iMid
+  002C ldarg.1 
+  002D ldstr "MidStatus"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_iMid
+  003E ret 
+
+## RGBKB::get_Right()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_right
+  0006 ret 
+
+## RGBKB::set_Right(Color value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_right
+  0006 ldarg.1 
+  0007 call Color::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_right
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiRightColor
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_right
+  002C ldarg.1 
+  002D ldstr "RightColor"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_right
+  003E ret 
+
+## RGBKB::get_iRight()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_iRight
+  0006 ret 
+
+## RGBKB::set_iRight(Int32 value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_iRight
+  0006 ldarg.1 
+  0007 call Int32::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_iRight
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiRightStatus
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_iRight
+  002C ldarg.1 
+  002D ldstr "RightStatus"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_iRight
+  003E ret 
+
+## RGBKB::get_TP()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_tp
+  0006 ret 
+
+## RGBKB::set_TP(Color value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_tp
+  0006 ldarg.1 
+  0007 call Color::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_tp
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiTPColor
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_tp
+  002C ldarg.1 
+  002D ldstr "TPColor"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_tp
+  003E ret 
+
+## RGBKB::get_iTp()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_itp
+  0006 ret 
+
+## RGBKB::set_iTp(Int32 value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_itp
+  0006 ldarg.1 
+  0007 call Int32::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_itp
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiTPStatus
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_itp
+  002C ldarg.1 
+  002D ldstr "TPStatus"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_itp
+  003E ret 
+
+## RGBKB::get_Logo()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_logo
+  0006 ret 
+
+## RGBKB::set_Logo(Color value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_logo
+  0006 ldarg.1 
+  0007 call Color::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_logo
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiLogoColor
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_logo
+  002C ldarg.1 
+  002D ldstr "LogoColor"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_logo
+  003E ret 
+
+## RGBKB::get_iLogo()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_ilogo
+  0006 ret 
+
+## RGBKB::set_iLogo(Int32 value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_ilogo
+  0006 ldarg.1 
+  0007 call Int32::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_ilogo
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiLogoStatus
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_ilogo
+  002C ldarg.1 
+  002D ldstr "LogoStatus"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_ilogo
+  003E ret 
+
+## RGBKB::get_LightBar()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_lightBar
+  0006 ret 
+
+## RGBKB::set_LightBar(Color value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_lightBar
+  0006 ldarg.1 
+  0007 call Color::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_lightBar
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiLightBarColor
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_lightBar
+  002C ldarg.1 
+  002D ldstr "LightBarColor"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_logo
+  003E ret 
+
+## RGBKB::get_iLightBar()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_ilightbar
+  0006 ret 
+
+## RGBKB::set_iLightBar(Int32 value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_ilightbar
+  0006 ldarg.1 
+  0007 call Int32::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_ilightbar
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiLightBarStatus
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_ilightbar
+  002C ldarg.1 
+  002D ldstr "LightBarStatus"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_ilightbar
+  003E ret 
+
+## RGBKB::get_Brightness()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_brightness
+  0006 ret 
+
+## RGBKB::set_Brightness(Int32 value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_brightness
+  0006 ldarg.1 
+  0007 call Int32::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_brightness
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiBrightness
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_brightness
+  002C ldarg.1 
+  002D ldstr "Brightness"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_brightness
+  003E ret 
+
+## RGBKB::get_Mode()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_iMode
+  0006 ret 
+
+## RGBKB::set_Mode(Int32 value)
+  0000 ldarg.0 
+  0001 ldflda RGBKB::_iMode
+  0006 ldarg.1 
+  0007 call Int32::Equals
+  000C brfalse.s 000F
+  000E ret 
+  000F ldarg.0 
+  0010 ldfld RGBKB::_initRead
+  0015 brfalse.s 001F
+  0017 ldarg.0 
+  0018 ldarg.1 
+  0019 stfld RGBKB::_iMode
+  001E ret 
+  001F ldarg.1 
+  0020 call InsydeAcpiProt::WriteAcpiMode
+  0025 ldarg.0 
+  0026 ldarg.0 
+  0027 ldfld RGBKB::_iMode
+  002C ldarg.1 
+  002D ldstr "Mode"
+  0032 call RGBKB::WriteLog
+  0037 ldarg.0 
+  0038 ldarg.1 
+  0039 stfld RGBKB::_iMode
+  003E ret 
+
+## RGBKB::FirstRun()
+  0000 ldarg.0 
+  0001 call BaseKB::ResetWmi13ToDefault
+  0006 ldarg.0 
+  0007 ldc.i4 255
+  000C ldc.i4.0 
+  000D ldc.i4.0 
+  000E call Color::FromRgb
+  0013 call RGBKB::set_Left
+  0018 ldarg.0 
+  0019 ldc.i4.0 
+  001A ldc.i4 255
+  001F ldc.i4.0 
+  0020 call Color::FromRgb
+  0025 call RGBKB::set_Mid
+  002A ldarg.0 
+  002B ldc.i4.0 
+  002C ldc.i4.0 
+  002D ldc.i4 255
+  0032 call Color::FromRgb
+  0037 call RGBKB::set_Right
+  003C ldarg.0 
+  003D ldc.i4.0 
+  003E ldc.i4.0 
+  003F ldc.i4 255
+  0044 call Color::FromRgb
+  0049 call RGBKB::set_All
+  004E ldarg.0 
+  004F ldc.i4.0 
+  0050 ldc.i4.0 
+  0051 ldc.i4 255
+  0056 call Color::FromRgb
+  005B call RGBKB::set_TP
+  0060 ldarg.0 
+  0061 ldc.i4.0 
+  0062 ldc.i4 255
+  0067 ldc.i4.0 
+  0068 call Color::FromRgb
+  006D call RGBKB::set_Logo
+  0072 ldarg.0 
+  0073 ldc.i4.0 
+  0074 ldc.i4.0 
+  0075 ldc.i4 255
+  007A call Color::FromRgb
+  007F call RGBKB::set_LightBar
+  0084 ldarg.0 
+  0085 ldc.i4.1 
+  0086 call RGBKB::set_iLeft
+  008B ldarg.0 
+  008C ldc.i4.1 
+  008D call RGBKB::set_iMid
+  0092 ldarg.0 
+  0093 ldc.i4.1 
+  0094 call RGBKB::set_iRight
+  0099 ldarg.0 
+  009A ldc.i4.1 
+  009B call RGBKB::set_iTp
+  00A0 ldarg.0 
+  00A1 ldc.i4.1 
+  00A2 call RGBKB::set_iLogo
+  00A7 ldarg.0 
+  00A8 ldc.i4.1 
+  00A9 call RGBKB::set_iLightBar
+  00AE ldarg.0 
+  00AF ldc.i4.1 
+  00B0 call RGBKB::set_Status
+  00B5 ldarg.0 
+  00B6 ldc.i4.4 
+  00B7 call RGBKB::set_Brightness
+  00BC ldarg.0 
+  00BD ldc.i4.1 
+  00BE call RGBKB::set_Mode
+  00C3 ldarg.0 
+  00C4 ldarg.0 
+  00C5 call RGBKB::GetDefaultLeftColor
+  00CA call RGBKB::set_Left
+  00CF ldarg.0 
+  00D0 ldarg.0 
+  00D1 call RGBKB::GetDefaultMidColor
+  00D6 call RGBKB::set_Mid
+  00DB ldarg.0 
+  00DC ldarg.0 
+  00DD call RGBKB::GetDefaultRightColor
+  00E2 call RGBKB::set_Right
+  00E7 ldarg.0 
+  00E8 call RGBKB::get_Left
+  00ED stloc.0 
+  00EE ldloca.s 0
+  00F0 ldarg.0 
+  00F1 call RGBKB::get_Mid
+  00F6 call Color::Equals
+  00FB brfalse.s 011F
+  00FD ldarg.0 
+  00FE call RGBKB::get_Left
+  0103 stloc.0 
+  0104 ldloca.s 0
+  0106 ldarg.0 
+  0107 call RGBKB::get_Right
+  010C call Color::Equals
+  0111 brfalse.s 011F
+  0113 ldarg.0 
+  0114 ldarg.0 
+  0115 call RGBKB::get_Left
+  011A call RGBKB::set_All
+  011F ldarg.0 
+  0120 call RGBKB::WriteAllReg
+  0125 ret 
+
+## RGBKB::GetDefaultLeftColor()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_wmi13
+  0006 brtrue.s 0024
+  0008 ldarg.0 
+  0009 ldc.i4 256
+  000E newarr ::Byte
+  0013 stfld RGBKB::_wmi13
+  0018 ldarg.0 
+  0019 ldarg.0 
+  001A ldflda RGBKB::_wmi13
+  001F call BaseKB::CopyWmi13
+  0024 ldarg.0 
+  0025 ldfld RGBKB::_wmi13
+  002A ldc.i4.2 
+  002B ldelem.u1 
+  002C ldarg.0 
+  002D ldfld RGBKB::_wmi13
+  0032 ldc.i4.3 
+  0033 ldelem.u1 
+  0034 ldarg.0 
+  0035 ldfld RGBKB::_wmi13
+  003A ldc.i4.4 
+  003B ldelem.u1 
+  003C call Color::FromRgb
+  0041 ret 
+
+## RGBKB::GetDefaultMidColor()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_wmi13
+  0006 brtrue.s 0024
+  0008 ldarg.0 
+  0009 ldc.i4 256
+  000E newarr ::Byte
+  0013 stfld RGBKB::_wmi13
+  0018 ldarg.0 
+  0019 ldarg.0 
+  001A ldflda RGBKB::_wmi13
+  001F call BaseKB::CopyWmi13
+  0024 ldarg.0 
+  0025 ldfld RGBKB::_wmi13
+  002A ldc.i4.5 
+  002B ldelem.u1 
+  002C ldarg.0 
+  002D ldfld RGBKB::_wmi13
+  0032 ldc.i4.6 
+  0033 ldelem.u1 
+  0034 ldarg.0 
+  0035 ldfld RGBKB::_wmi13
+  003A ldc.i4.7 
+  003B ldelem.u1 
+  003C call Color::FromRgb
+  0041 ret 
+
+## RGBKB::GetDefaultRightColor()
+  0000 ldarg.0 
+  0001 ldfld RGBKB::_wmi13
+  0006 brtrue.s 0024
+  0008 ldarg.0 
+  0009 ldc.i4 256
+  000E newarr ::Byte
+  0013 stfld RGBKB::_wmi13
+  0018 ldarg.0 
+  0019 ldarg.0 
+  001A ldflda RGBKB::_wmi13
+  001F call BaseKB::CopyWmi13
+  0024 ldarg.0 
+  0025 ldfld RGBKB::_wmi13
+  002A ldc.i4.8 
+  002B ldelem.u1 
+  002C ldarg.0 
+  002D ldfld RGBKB::_wmi13
+  0032 ldc.i4.s 9
+  0034 ldelem.u1 
+  0035 ldarg.0 
+  0036 ldfld RGBKB::_wmi13
+  003B ldc.i4.s 10
+  003D ldelem.u1 
+  003E call Color::FromRgb
+  0043 ret 
+
+## RGBKB::Init()
+  0000 ldarg.0 
+  0001 ldc.i4.1 
+  0002 stfld RGBKB::_initRead
+  0007 ldarg.0 
+  0008 ldarg.0 
+  0009 call BaseKB::GetKBType
+  000E stfld RGBKB::_kbType
+  0013 ldarg.0 
+  0014 call RGBKB::ReadAllReg
+  0019 ldarg.0 
+  001A ldc.i4.0 
+  001B stfld RGBKB::_initRead
+  0020 ldarg.0 
+  0021 call RGBKB::SetMode
+  0026 ldarg.0 
+  0027 call RGBKB::SetLedOnOff
+  002C ret 
+
+## RGBKB::SetStatus()
+  0000 ldarg.0 
+  0001 call RGBKB::SetLedOnOff
+  0006 ldarg.0 
+  0007 call RGBKB::get_Status
+  000C ret 
+
+## RGBKB::UpdateStatus()
+  0000 ldarg.0 
+  0001 call InsydeAcpiProt::ReadAcpiStatus
+  0006 call RGBKB::set_Status
+  000B ldarg.0 
+  000C call InsydeAcpiProt::ReadAcpiLeftStatus
+  0011 call RGBKB::set_iLeft
+  0016 ldarg.0 
+  0017 call InsydeAcpiProt::ReadAcpiMidStatus
+  001C call RGBKB::set_iMid
+  0021 ldarg.0 
+  0022 call InsydeAcpiProt::ReadAcpiRightStatus
+  0027 call RGBKB::set_iRight
+  002C ret 
+
+## RGBKB::SetBrightnessLevel()
+  0000 ldc.i4.0 
+  0001 stloc.0 
+  0002 ldarg.0 
+  0003 call RGBKB::get_Brightness
+  0008 stloc.1 
+  0009 ldloc.1 
+  000A ldc.i4.1 
+  000B sub 
+  000C switch switch[4]
+  0021 br.s 003D
+  0023 ldc.i4.s 47
+  0025 stloc.0 
+  0026 br.s 003F
+  0028 ldc.i4.s 95
+  002A stloc.0 
+  002B br.s 003F
+  002D ldc.i4 143
+  0032 stloc.0 
+  0033 br.s 003F
+  0035 ldc.i4 191
+  003A stloc.0 
+  003B br.s 003F
+  003D ldc.i4.0 
+  003E stloc.0 
+  003F ldarg.0 
+  0040 ldloc.0 
+  0041 call RGBKB::SetBrightnessValue
+  0046 ret 
+
+## RGBKB::SetBrightnessLevel(Int32 value)
+  0000 ldarg.1 
+  0001 brfalse.s 000A
+  0003 ldarg.0 
+  0004 ldarg.1 
+  0005 call RGBKB::set_Brightness
+  000A ldc.i4.0 
+  000B stloc.0 
+  000C ldarg.1 
+  000D ldc.i4.1 
+  000E sub 
+  000F switch switch[4]
+  0024 br.s 0040
+  0026 ldc.i4.s 47
+  0028 stloc.0 
+  0029 br.s 0043
+  002B ldc.i4.s 95
+  002D stloc.0 
+  002E br.s 0043
+  0030 ldc.i4 143
+  0035 stloc.0 
+  0036 br.s 0043
+  0038 ldc.i4 191
+  003D stloc.0 
+  003E br.s 0043
+  0040 ldc.i4.s 47
+  0042 stloc.0 
+  0043 ldarg.0 
+  0044 ldloc.0 
+  0045 call RGBKB::SetBrightnessValue
+  004A ret 
+
+## RGBKB::SetBrightnessValue(Int32 value)
+  0000 ldc.i4 -201326592
+  0005 ldarg.1 
+  0006 add 
+  0007 call BitConverter::GetBytes
+  000C stloc.0 
+  000D ldc.i4.s 103
+  000F ldloc.0 
+  0010 ldc.i4.4 
+  0011 call InsydeAcpiProt::SetDCHU_Data
+  0016 pop 
+  0017 ret 
+
+## RGBKB::UpdateBrightness()
+  0000 ldarg.0 
+  0001 call InsydeAcpiProt::ReadAcpiBrightness
+  0006 call RGBKB::set_Brightness
+  000B ret 
+
+## RGBKB::SetBrightnessDown()
+  0000 ldarg.0 
+  0001 call InsydeAcpiProt::ReadAcpiBrightness
+  0006 call RGBKB::set_Brightness
+  000B ldarg.0 
+  000C ldc.i4.1 
+  000D call RGBKB::set_Status
+  0012 ldarg.0 
+  0013 call RGBKB::get_Brightness
+  0018 ldc.i4.1 
+  0019 beq.s 002B
+  001B ldarg.0 
+  001C call RGBKB::get_Brightness
+  0021 stloc.0 
+  0022 ldarg.0 
+  0023 ldloc.0 
+  0024 ldc.i4.1 
+  0025 sub 
+  0026 call RGBKB::set_Brightness
+  002B ldarg.0 
+  002C call RGBKB::SetLedOnOff
+  0031 ldarg.0 
+  0032 call RGBKB::SetBrightnessLevel
+  0037 ret 
+
+## RGBKB::SetBrightnessUp()
+  0000 ldarg.0 
+  0001 call InsydeAcpiProt::ReadAcpiBrightness
+  0006 call RGBKB::set_Brightness
+  000B ldarg.0 
+  000C ldc.i4.1 
+  000D call RGBKB::set_Status
+  0012 ldarg.0 
+  0013 call RGBKB::get_Brightness
+  0018 ldc.i4.4 
+  0019 beq.s 002B
+  001B ldarg.0 
+  001C call RGBKB::get_Brightness
+  0021 stloc.0 
+  0022 ldarg.0 
+  0023 ldloc.0 
+  0024 ldc.i4.1 
+  0025 add 
+  0026 call RGBKB::set_Brightness
+  002B ldarg.0 
+  002C call RGBKB::SetLedOnOff
+  0031 ldarg.0 
+  0032 call RGBKB::SetBrightnessLevel
+  0037 ret 
+
+## RGBKB::SetOverrideBootEffect(Int32 value)
+  0000 ldc.i4 503316480
+  0005 ldarg.1 
+  0006 add 
+  0007 call BitConverter::GetBytes
+  000C stloc.0 
+  000D ldc.i4.s 121
+  000F ldloc.0 
+  0010 ldc.i4.4 
+  0011 call InsydeAcpiProt::SetDCHU_Data
+  0016 pop 
+  0017 ret 
+
+## RGBKB::SetMode()
+  0000 ldarg.0 
+  0001 call RGBKB::get_Status
+  0006 stloc.0 
+  0007 ldloca.s 0
+  0009 ldc.i4.1 
+  000A call Int32::Equals
+  000F brfalse.s 001D
+  0011 ldarg.0 
+  0012 ldarg.0 
+  0013 call RGBKB::get_Brightness
+  0018 call RGBKB::SetBrightnessLevel
+  001D ldarg.0 
+  001E call RGBKB::get_Mode
+  0023 stloc.0 
+  0024 ldloc.0 
+  0025 switch switch[9]
+  004E ret 
+  004F ldarg.0 
+  0050 call RGBKB::SetCustomColor
+  0055 ret 
+  0056 ldarg.0 
+  0057 call RGBKB::SetBreathMode
+  005C ret 
+  005D ldarg.0 
+  005E call RGBKB::SetRandomMode
+  0063 ret 
+  0064 ldarg.0 
+  0065 call RGBKB::SetFlashMode
+  006A ret 
+  006B ldarg.0 
+  006C call RGBKB::SetTempoMode
+  0071 ret 
+  0072 ldarg.0 
+  0073 call RGBKB::SetDanceMode
+  0078 ret 
+  0079 ldarg.0 
+  007A call RGBKB::SetWaveMode
+  007F ret 
+  0080 ldarg.0 
+  0081 call RGBKB::SetCycleMode
+  0086 ret 
+  0087 ldarg.0 
+  0088 call RGBKB::SetAllColor
+  008D ret 
+
+## RGBKB::SetCustomColor()
+  0000 ldarg.0 
+  0001 ldc.i4.1 
+  0002 ldarg.0 
+  0003 call RGBKB::get_Left
+  0008 call RGBKB::SetColor
+  000D ldarg.0 
+  000E ldc.i4.2 
+  000F ldarg.0 
+  0010 call RGBKB::get_Mid
+  0015 call RGBKB::SetColor
+  001A ldarg.0 
+  001B ldc.i4.3 
+  001C ldarg.0 
+  001D call RGBKB::get_Right
+  0022 call RGBKB::SetColor
+  0027 ldarg.0 
+  0028 call BaseKB::SupportLogo
+  002D brfalse.s 003C
+  002F ldarg.0 
+  0030 ldc.i4.7 
+  0031 ldarg.0 
+  0032 call RGBKB::get_Logo
+  0037 call RGBKB::SetColor
+  003C ldarg.0 
+  003D call BaseKB::SupportLightbar
+  0042 brfalse.s 0051
+  0044 ldarg.0 
+  0045 ldc.i4.8 
+  0046 ldarg.0 
+  0047 call RGBKB::get_LightBar
+  004C call RGBKB::SetColor
+  0051 ret 
+
+## RGBKB::SetBreathMode()
+  0000 ldarg.0 
+  0001 ldc.i4.1 
+  0002 ldarg.0 
+  0003 call RGBKB::get_Left
+  0008 call RGBKB::SetColor
+  000D ldarg.0 
+  000E ldc.i4.2 
+  000F ldarg.0 
+  0010 call RGBKB::get_Mid
+  0015 call RGBKB::SetColor
+  001A ldarg.0 
+  001B ldc.i4.3 
+  001C ldarg.0 
+  001D call RGBKB::get_Right
+  0022 call RGBKB::SetColor
+  0027 ldarg.0 
+  0028 call BaseKB::SupportLogo
+  002D brfalse.s 003C
+  002F ldarg.0 
+  0030 ldc.i4.7 
+  0031 ldarg.0 
+  0032 call RGBKB::get_Logo
+  0037 call RGBKB::SetColor
+  003C ldarg.0 
+  003D call BaseKB::SupportLightbar
+  0042 brfalse.s 0051
+  0044 ldarg.0 
+  0045 ldc.i4.8 
+  0046 ldarg.0 
+  0047 call RGBKB::get_LightBar
+  004C call RGBKB::SetColor
+  0051 ldc.i4.2 
+  0052 stloc.0 
+  0053 ldloc.0 
+  0054 ldc.i4.s 16
+  0056 shl 
+  0057 stloc.0 
+  0058 ldloc.0 
+  0059 ldc.i4 268435456
+  005E or 
+  005F stloc.0 
+  0060 ldc.i4.0 
+  0061 ldc.i4 40960
+  0066 or 
+  0067 ldloc.0 
+  0068 or 
+  0069 call BitConverter::GetBytes
+  006E stloc.1 
+  006F ldc.i4.s 103
+  0071 ldloc.1 
+  0072 ldc.i4.4 
+  0073 call InsydeAcpiProt::SetDCHU_Data
+  0078 pop 
+  0079 ret 
+
+## RGBKB::SetRandomMode()
+  0000 ldc.i4 1879048192
+  0005 call BitConverter::GetBytes
+  000A stloc.0 
+  000B ldc.i4.s 103
+  000D ldloc.0 
+  000E ldc.i4.4 
+  000F call InsydeAcpiProt::SetDCHU_Data
+  0014 pop 
+  0015 ret 
+
+## RGBKB::SetFlashMode()
+  0000 ldc.i4 -1610612736
+  0005 call BitConverter::GetBytes
+  000A stloc.0 
+  000B ldc.i4.s 103
+  000D ldloc.0 
+  000E ldc.i4.4 
+  000F call InsydeAcpiProt::SetDCHU_Data
+  0014 pop 
+  0015 ret 
+
+## RGBKB::SetTempoMode()
+  0000 ldc.i4 -1879048192
+  0005 call BitConverter::GetBytes
+  000A stloc.0 
+  000B ldc.i4.s 103
+  000D ldloc.0 
+  000E ldc.i4.4 
+  000F call InsydeAcpiProt::SetDCHU_Data
+  0014 pop 
+  0015 ret 
+
+## RGBKB::SetDanceMode()
+  0000 ldc.i4 -2147483648
+  0005 call BitConverter::GetBytes
+  000A stloc.0 
+  000B ldc.i4.s 103
+  000D ldloc.0 
+  000E ldc.i4.4 
+  000F call InsydeAcpiProt::SetDCHU_Data
+  0014 pop 
+  0015 ret 
+
+## RGBKB::SetWaveMode()
+  0000 ldc.i4 -1342177280
+  0005 call BitConverter::GetBytes
+  000A stloc.0 
+  000B ldc.i4.s 103
+  000D ldloc.0 
+  000E ldc.i4.4 
+  000F call InsydeAcpiProt::SetDCHU_Data
+  0014 pop 
+  0015 ret 
+
+## RGBKB::SetCycleMode()
+  0000 ldc.i4 855703552
+  0005 call BitConverter::GetBytes
+  000A stloc.0 
+  000B ldc.i4.s 103
+  000D ldloc.0 
+  000E ldc.i4.4 
+  000F call InsydeAcpiProt::SetDCHU_Data
+  0014 pop 
+  0015 ret 
+
+## RGBKB::SetAllColor()
+  0000 ldarg.0 
+  0001 ldc.i4.1 
+  0002 ldarg.0 
+  0003 call RGBKB::get_All
+  0008 call RGBKB::SetColor
+  000D ldarg.0 
+  000E ldc.i4.2 
+  000F ldarg.0 
+  0010 call RGBKB::get_All
+  0015 call RGBKB::SetColor
+  001A ldarg.0 
+  001B ldc.i4.3 
+  001C ldarg.0 
+  001D call RGBKB::get_All
+  0022 call RGBKB::SetColor
+  0027 ldarg.0 
+  0028 call BaseKB::SupportLogo
+  002D brfalse.s 003C
+  002F ldarg.0 
+  0030 ldc.i4.7 
+  0031 ldarg.0 
+  0032 call RGBKB::get_Logo
+  0037 call RGBKB::SetColor
+  003C ldarg.0 
+  003D call BaseKB::SupportLightbar
+  0042 brfalse.s 0051
+  0044 ldarg.0 
+  0045 ldc.i4.8 
+  0046 ldarg.0 
+  0047 call RGBKB::get_LightBar
+  004C call RGBKB::SetColor
+  0051 ret 
+
+## RGBKB::SetColor(Int32 KbPart, Color _color)
+  0000 ldc.i4.0 
+  0001 stloc.0 
+  0002 ldc.i4.0 
+  0003 stloc.1 
+  0004 ldarg.1 
+  0005 ldc.i4.1 
+  0006 sub 
+  0007 switch switch[8]
+  002C br.s 0054
+  002E ldc.i4 240
+  0033 stloc.1 
+  0034 br.s 0054
+  0036 ldc.i4 241
+  003B stloc.1 
+  003C br.s 0054
+  003E ldc.i4 242
+  0043 stloc.1 
+  0044 br.s 0054
+  0046 ldc.i4 243
+  004B stloc.1 
+  004C br.s 0054
+  004E ldc.i4 246
+  0053 stloc.1 
+  0054 ldarg.0 
+  0055 ldfld RGBKB::_kbType
+  005A ldc.i4.6 
+  005B beq.s 0067
+  005D ldarg.0 
+  005E ldfld RGBKB::_kbType
+  0063 ldc.i4.s 22
+  0065 bne.un.s 0086
+  0067 ldarga.s 2
+  0069 call Color::get_B
+  006E ldc.i4.s 16
+  0070 shl 
+  0071 ldarga.s 2
+  0073 call Color::get_R
+  0078 ldc.i4.8 
+  0079 shl 
+  007A or 
+  007B ldarga.s 2
+  007D call Color::get_G
+  0082 or 
+  0083 stloc.0 
+  0084 br.s 00B5
+  0086 ldc.r8 0,784313725490196
+  008F ldarga.s 2
+  0091 call Color::get_B
+  0096 conv.r8 
+  0097 mul 
+  0098 ldc.i4.0 
+  0099 call Math::Round
+  009E conv.u1 
+  009F ldc.i4.s 16
+  00A1 shl 
+  00A2 ldarga.s 2
+  00A4 call Color::get_R
+  00A9 ldc.i4.8 
+  00AA shl 
+  00AB or 
+  00AC ldarga.s 2
+  00AE call Color::get_G
+  00B3 or 
+  00B4 stloc.0 
+  00B5 ldloc.1 
+  00B6 ldc.i4.s 24
+  00B8 shl 
+  00B9 conv.i8 
+  00BA ldloc.0 
+  00BB conv.u8 
+  00BC add 
+  00BD call BitConverter::GetBytes
+  00C2 stloc.2 
+  00C3 ldc.i4.s 103
+  00C5 ldloc.2 
+  00C6 ldc.i4.4 
+  00C7 call InsydeAcpiProt::SetDCHU_Data
+  00CC pop 
+  00CD ret 
+
+## RGBKB::SetLedOnOff()
+  0000 ldc.i4 224
+  0005 ldc.i4.0 
+  0006 stloc.0 
+  0007 ldc.i4.7 
+  0008 stloc.1 
+  0009 ldc.i4.0 
+  000A stloc.2 
+  000B ldc.i4.0 
+  000C stloc.3 
+  000D ldc.i4.0 
+  000E stloc.s 4
+  0010 ldc.i4.0 
+  0011 stloc.s 5
+  0013 ldc.i4.0 
+  0014 stloc.s 6
+  0016 ldarg.0 
+  0017 call RGBKB::get_Status
+  001C stloc.s 8
+  001E ldloca.s 8
+  0020 ldc.i4.1 
+  0021 call Int32::Equals
+  0026 brfalse 00ED
+  002B ldc.i4.1 
+  002C stloc.s 5
+  002E ldarg.0 
+  002F call RGBKB::get_TP
+  0034 ldc.i4.0 
+  0035 ldc.i4.0 
+  0036 ldc.i4.0 
+  0037 call Color::FromRgb
+  003C call Color::op_Equality
+  0041 brtrue.s 0055
+  0043 ldarg.0 
+  0044 call RGBKB::get_iTp
+  0049 stloc.s 8
+  004B ldloca.s 8
+  004D ldc.i4.0 
+  004E call Int32::Equals
+  0053 brfalse.s 0059
+  0055 ldc.i4.7 
+  0056 stloc.1 
+  0057 br.s 005B
+  0059 ldc.i4.1 
+  005A stloc.1 
+  005B ldarg.0 
+  005C call BaseKB::SupportLightbar
+  0061 brfalse.s 00A8
+  0063 ldloc.0 
+  0064 ldloc.3 
+  0065 or 
+  0066 ldloc.s 4
+  0068 or 
+  0069 ldloc.1 
+  006A or 
+  006B ldloc.2 
+  006C or 
+  006D ldloc.s 5
+  006F ldc.i4.s 12
+  0071 shl 
+  0072 add 
+  0073 ldarg.0 
+  0074 call RGBKB::get_iLogo
+  0079 ldc.i4.s 13
+  007B shl 
+  007C add 
+  007D ldarg.0 
+  007E call RGBKB::get_iLightBar
+  0083 ldc.i4.s 15
+  0085 shl 
+  0086 add 
+  0087 ldarg.0 
+  0088 call RGBKB::get_iLeft
+  008D ldc.i4.s 16
+  008F shl 
+  0090 add 
+  0091 ldarg.0 
+  0092 call RGBKB::get_iMid
+  0097 ldc.i4.s 17
+  0099 shl 
+  009A add 
+  009B ldarg.0 
+  009C call RGBKB::get_iRight
+  00A1 ldc.i4.s 18
+  00A3 shl 
+  00A4 add 
+  00A5 stloc.0 
+  00A6 br.s 0119
+  00A8 ldloc.0 
+  00A9 ldloc.3 
+  00AA or 
+  00AB ldloc.s 4
+  00AD or 
+  00AE ldloc.1 
+  00AF or 
+  00B0 ldloc.2 
+  00B1 or 
+  00B2 ldloc.s 5
+  00B4 ldc.i4.s 12
+  00B6 shl 
+  00B7 add 
+  00B8 ldarg.0 
+  00B9 call RGBKB::get_iLogo
+  00BE ldc.i4.s 13
+  00C0 shl 
+  00C1 add 
+  00C2 ldarg.0 
+  00C3 call RGBKB::get_iTp
+  00C8 ldc.i4.s 15
+  00CA shl 
+  00CB add 
+  00CC ldarg.0 
+  00CD call RGBKB::get_iLeft
+  00D2 ldc.i4.s 16
+  00D4 shl 
+  00D5 add 
+  00D6 ldarg.0 
+  00D7 call RGBKB::get_iMid
+  00DC ldc.i4.s 17
+  00DE shl 
+  00DF add 
+  00E0 ldarg.0 
+  00E1 call RGBKB::get_iRight
+  00E6 ldc.i4.s 18
+  00E8 shl 
+  00E9 add 
+  00EA stloc.0 
+  00EB br.s 0119
+  00ED ldloc.3 
+  00EE ldloc.s 4
+  00F0 or 
+  00F1 ldloc.1 
+  00F2 or 
+  00F3 ldloc.2 
+  00F4 or 
+  00F5 ldloc.s 5
+  00F7 ldc.i4.s 12
+  00F9 shl 
+  00FA add 
+  00FB ldloc.s 6
+  00FD ldc.i4.s 13
+  00FF shl 
+  0100 add 
+  0101 stloc.0 
+  0102 ldc.i4 -201326592
+  0107 call BitConverter::GetBytes
+  010C stloc.s 9
+  010E ldc.i4.s 103
+  0110 ldloc.s 9
+  0112 ldc.i4.4 
+  0113 call InsydeAcpiProt::SetDCHU_Data
+  0118 pop 
+  0119 ldc.i4.s 24
+  011B shl 
+  011C conv.i8 
+  011D ldloc.0 
+  011E conv.u8 
+  011F add 
+  0120 call BitConverter::GetBytes
+  0125 stloc.s 7
+  0127 ldc.i4.s 103
+  0129 ldloc.s 7
+  012B ldc.i4.4 
+  012C call InsydeAcpiProt::SetDCHU_Data
+  0131 pop 
+  0132 ret 
+
+## RGBKB::StringToColor(String color)
+  0000 ldarg.1 
+  0001 ldc.i4.1 
+  0002 newarr ::Char
+  0007 dup 
+  0008 ldc.i4.0 
+  0009 ldc.i4.s 95
+  000B stelem.i2 
+  000C callvirt String::Split
+  0011 stloc.0 
+  0012 ldc.i4 255
+  0017 ldloc.0 
+  0018 ldc.i4.0 
+  0019 ldelem.ref 
+  001A call Convert::ToByte
+  001F ldloc.0 
+  0020 ldc.i4.1 
+  0021 ldelem.ref 
+  0022 call Convert::ToByte
+  0027 ldloc.0 
+  0028 ldc.i4.2 
+  0029 ldelem.ref 
+  002A call Convert::ToByte
+  002F call Color::FromArgb
+  0034 ret 
+
+## RGBKB::ColorToString(Color color)
+  0000 ldc.i4.5 
+  0001 newarr ::String
+  0006 dup 
+  0007 ldc.i4.0 
+  0008 ldarga.s 1
+  000A call Color::get_R
+  000F stloc.0 
+  0010 ldloca.s 0
+  0012 call Byte::ToString
+  0017 stelem.ref 
+  0018 dup 
+  0019 ldc.i4.1 
+  001A ldstr "_"
+  001F stelem.ref 
+  0020 dup 
+  0021 ldc.i4.2 
+  0022 ldarga.s 1
+  0024 call Color::get_G
+  0029 stloc.0 
+  002A ldloca.s 0
+  002C call Byte::ToString
+  0031 stelem.ref 
+  0032 dup 
+  0033 ldc.i4.3 
+  0034 ldstr "_"
+  0039 stelem.ref 
+  003A dup 
+  003B ldc.i4.4 
+  003C ldarga.s 1
+  003E call Color::get_B
+  0043 stloc.0 
+  0044 ldloca.s 0
+  0046 call Byte::ToString
+  004B stelem.ref 
+  004C call String::Concat
+  0051 ret 
+
+## RGBKB::WriteAllReg()
+  0000 ldarg.0 
+  0001 call RGBKB::get_Left
+  0006 call InsydeAcpiProt::WriteAcpiLeftColor
+  000B ldarg.0 
+  000C call RGBKB::get_Mid
+  0011 call InsydeAcpiProt::WriteAcpiMidColor
+  0016 ldarg.0 
+  0017 call RGBKB::get_Right
+  001C call InsydeAcpiProt::WriteAcpiRightColor
+  0021 ldarg.0 
+  0022 call RGBKB::get_All
+  0027 call InsydeAcpiProt::WriteAcpiAllColor
+  002C ldarg.0 
+  002D call RGBKB::get_TP
+  0032 call InsydeAcpiProt::WriteAcpiTPColor
+  0037 ldarg.0 
+  0038 call RGBKB::get_Logo
+  003D call InsydeAcpiProt::WriteAcpiLogoColor
+  0042 ldarg.0 
+  0043 call RGBKB::get_LightBar
+  0048 call InsydeAcpiProt::WriteAcpiLightBarColor
+  004D ldarg.0 
+  004E call RGBKB::get_iLeft
+  0053 call InsydeAcpiProt::WriteAcpiLeftStatus
+  0058 ldarg.0 
+  0059 call RGBKB::get_iMid
+  005E call InsydeAcpiProt::WriteAcpiMidStatus
+  0063 ldarg.0 
+  0064 call RGBKB::get_iRight
+  0069 call InsydeAcpiProt::WriteAcpiRightStatus
+  006E ldarg.0 
+  006F call RGBKB::get_iTp
+  0074 call InsydeAcpiProt::WriteAcpiTPStatus
+  0079 ldarg.0 
+  007A call RGBKB::get_iLogo
+  007F call InsydeAcpiProt::WriteAcpiLogoStatus
+  0084 ldarg.0 
+  0085 call RGBKB::get_iLightBar
+  008A call InsydeAcpiProt::WriteAcpiLightBarStatus
+  008F ldarg.0 
+  0090 call RGBKB::get_Status
+  0095 call InsydeAcpiProt::WriteAcpiStatus
+  009A ldarg.0 
+  009B call RGBKB::get_Mode
+  00A0 call InsydeAcpiProt::WriteAcpiMode
+  00A5 ret 
+
+## RGBKB::ReadAllReg()
+  0000 ldarg.0 
+  0001 call InsydeAcpiProt::ReadAcpiStatus
+  0006 call RGBKB::set_Status
+  000B ldarg.0 
+  000C call InsydeAcpiProt::ReadAcpiMode
+  0011 call RGBKB::set_Mode
+  0016 ldarg.0 
+  0017 call InsydeAcpiProt::ReadAcpiLeftStatus
+  001C call RGBKB::set_iLeft
+  0021 ldarg.0 
+  0022 call InsydeAcpiProt::ReadAcpiMidStatus
+  0027 call RGBKB::set_iMid
+  002C ldarg.0 
+  002D call InsydeAcpiProt::ReadAcpiRightStatus
+  0032 call RGBKB::set_iRight
+  0037 ldarg.0 
+  0038 call InsydeAcpiProt::ReadAcpiTPStatus
+  003D call RGBKB::set_iTp
+  0042 ldarg.0 
+  0043 call InsydeAcpiProt::ReadAcpiLogoStatus
+  0048 call RGBKB::set_iLogo
+  004D ldarg.0 
+  004E call InsydeAcpiProt::ReadAcpiLightBarStatus
+  0053 call RGBKB::set_iLightBar
+  0058 ldarg.0 
+  0059 call InsydeAcpiProt::ReadAcpiLeftColor
+  005E call RGBKB::set_Left
+  0063 ldarg.0 
+  0064 call InsydeAcpiProt::ReadAcpiMidColor
+  0069 call RGBKB::set_Mid
+  006E ldarg.0 
+  006F call InsydeAcpiProt::ReadAcpiRightColor
+  0074 call RGBKB::set_Right
+  0079 ldarg.0 
+  007A call InsydeAcpiProt::ReadAcpiAllColor
+  007F call RGBKB::set_All
+  0084 ldarg.0 
+  0085 call InsydeAcpiProt::ReadAcpiTPColor
+  008A call RGBKB::set_TP
+  008F ldarg.0 
+  0090 call InsydeAcpiProt::ReadAcpiLogoColor
+  0095 call RGBKB::set_Logo
+  009A ldarg.0 
+  009B call InsydeAcpiProt::ReadAcpiLightBarColor
+  00A0 call RGBKB::set_LightBar
+  00A5 ldarg.0 
+  00A6 call InsydeAcpiProt::ReadAcpiBrightness
+  00AB call RGBKB::set_Brightness
+  00B0 ret 
+
+## RGBKB::WriteLog(Int32 before, Int32 after, String attribute)
+  0000 ldstr "Keyboard_"
+  0005 newobj StringBuilder::.ctor
+  000A stloc.0 
+  000B ldloc.0 
+  000C ldarg.3 
+  000D ldstr "_"
+  0012 ldarga.s 2
+  0014 call Int32::ToString
+  0019 call String::Concat
+  001E callvirt StringBuilder::Append
+  0023 pop 
+  0024 ldloc.0 
+  0025 ldstr "
+
+"
+  002A callvirt StringBuilder::Append
+  002F pop 
+  0030 ldloc.0 
+  0031 ldstr "KB Type: "
+  0036 ldarg.0 
+  0037 call BaseKB::GetKBType
+  003C stloc.1 
+  003D ldloca.s 1
+  003F call Int32::ToString
+  0044 ldstr "
+"
+  0049 call String::Concat
+  004E callvirt StringBuilder::Append
+  0053 pop 
+  0054 ldloc.0 
+  0055 ldc.i4.6 
+  0056 newarr ::String
+  005B dup 
+  005C ldc.i4.0 
+  005D ldstr "Set "
+  0062 stelem.ref 
+  0063 dup 
+  0064 ldc.i4.1 
+  0065 ldarg.3 
+  0066 stelem.ref 
+  0067 dup 
+  0068 ldc.i4.2 
+  0069 ldstr ": "
+  006E stelem.ref 
+  006F dup 
+  0070 ldc.i4.3 
+  0071 ldarga.s 1
+  0073 call Int32::ToString
+  0078 stelem.ref 
+  0079 dup 
+  007A ldc.i4.4 
+  007B ldstr " -> "
+  0080 stelem.ref 
+  0081 dup 
+  0082 ldc.i4.5 
+  0083 ldarga.s 2
+  0085 call Int32::ToString
+  008A stelem.ref 
+  008B call String::Concat
+  0090 callvirt StringBuilder::Append
+  0095 pop 
+  0096 ldloc.0 
+  0097 callvirt Object::ToString
+  009C call ClevoLog::Write
+  00A1 ldc.i4.s 10
+  00A3 call Thread::Sleep
+  00A8 ret 
+
+## RGBKB::WriteLog(Color before, Color after, String attribute)
+  0000 ldstr "Keyboard_"
+  0005 newobj StringBuilder::.ctor
+  000A stloc.0 
+  000B ldloc.0 
+  000C ldarg.3 
+  000D ldstr "_"
+  0012 ldarg.0 
+  0013 ldarg.2 
+  0014 call RGBKB::ColorToString
+  0019 call String::Concat
+  001E callvirt StringBuilder::Append
+  0023 pop 
+  0024 ldloc.0 
+  0025 ldstr "
+
+"
+  002A callvirt StringBuilder::Append
+  002F pop 
+  0030 ldloc.0 
+  0031 ldstr "KB Type: "
+  0036 ldarg.0 
+  0037 call BaseKB::GetKBType
+  003C stloc.1 
+  003D ldloca.s 1
+  003F call Int32::ToString
+  0044 ldstr "
+"
+  0049 call String::Concat
+  004E callvirt StringBuilder::Append
+  0053 pop 
+  0054 ldloc.0 
+  0055 ldc.i4.6 
+  0056 newarr ::String
+  005B dup 
+  005C ldc.i4.0 
+  005D ldstr "Set "
+  0062 stelem.ref 
+  0063 dup 
+  0064 ldc.i4.1 
+  0065 ldarg.3 
+  0066 stelem.ref 
+  0067 dup 
+  0068 ldc.i4.2 
+  0069 ldstr ": "
+  006E stelem.ref 
+  006F dup 
+  0070 ldc.i4.3 
+  0071 ldarg.0 
+  0072 ldarg.1 
+  0073 call RGBKB::ColorToString
+  0078 stelem.ref 
+  0079 dup 
+  007A ldc.i4.4 
+  007B ldstr " -> "
+  0080 stelem.ref 
+  0081 dup 
+  0082 ldc.i4.5 
+  0083 ldarg.0 
+  0084 ldarg.2 
+  0085 call RGBKB::ColorToString
+  008A stelem.ref 
+  008B call String::Concat
+  0090 callvirt StringBuilder::Append
+  0095 pop 
+  0096 ldloc.0 
+  0097 callvirt Object::ToString
+  009C call ClevoLog::Write
+  00A1 ldc.i4.s 10
+  00A3 call Thread::Sleep
+  00A8 ret 
+
+## RGBKB::.ctor()
+  0000 ldarg.0 
+  0001 ldc.i4.0 
+  0002 ldc.i4.0 
+  0003 ldc.i4 255
+  0008 call Color::FromRgb
+  000D stfld RGBKB::_all
+  0012 ldarg.0 
+  0013 ldc.i4 255
+  0018 ldc.i4.0 
+  0019 ldc.i4.0 
+  001A call Color::FromRgb
+  001F stfld RGBKB::_left
+  0024 ldarg.0 
+  0025 ldc.i4.0 
+  0026 ldc.i4 255
+  002B ldc.i4.0 
+  002C call Color::FromRgb
+  0031 stfld RGBKB::_mid
+  0036 ldarg.0 
+  0037 ldc.i4.0 
+  0038 ldc.i4.0 
+  0039 ldc.i4 255
+  003E call Color::FromRgb
+  0043 stfld RGBKB::_right
+  0048 ldarg.0 
+  0049 ldc.i4.0 
+  004A ldc.i4.0 
+  004B ldc.i4 255
+  0050 call Color::FromRgb
+  0055 stfld RGBKB::_tp
+  005A ldarg.0 
+  005B ldc.i4.0 
+  005C ldc.i4 255
+  0061 ldc.i4.0 
+  0062 call Color::FromRgb
+  0067 stfld RGBKB::_logo
+  006C ldarg.0 
+  006D ldc.i4.0 
+  006E ldc.i4.0 
+  006F ldc.i4 255
+  0074 call Color::FromRgb
+  0079 stfld RGBKB::_lightBar
+  007E ldarg.0 
+  007F ldc.i4.2 
+  0080 stfld RGBKB::_kbType
+  0085 ldarg.0 
+  0086 call BaseKB::.ctor
+  008B ret 
